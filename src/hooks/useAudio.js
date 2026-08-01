@@ -62,14 +62,15 @@ export function useAudio() {
     }
   }, [ensureAudio, playAmbientNote]);
 
-  useEffect(() => {
-    const handler = () => ensureAudio();
-    document.addEventListener('click', handler, { once: true });
-    return () => {
-      document.removeEventListener('click', handler);
-      if (musicTimerRef.current) clearInterval(musicTimerRef.current);
-    };
-  }, [ensureAudio]);
+useEffect(() => {
+  const handler = () => ensureAudio();
+  const events = ['click', 'touchstart', 'keydown'];
+  events.forEach((ev) => document.addEventListener(ev, handler, { once: true }));
+  return () => {
+    events.forEach((ev) => document.removeEventListener(ev, handler));
+    if (musicTimerRef.current) clearInterval(musicTimerRef.current);
+  };
+}, [ensureAudio]);
 
   return { musicOn, toggleMusic, playBlip };
 }
