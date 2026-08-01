@@ -360,4 +360,5 @@ footer .disclaimer{margin-top:8px;opacity:.7;font-size:11px;}
 @media(max-width:520px){
   #hotbar{transform:translateX(-50%) scale(.82);bottom:6px;}
   section{padding:70px 16px;}
+  #sound-controls{top:14px;left:14px;bottom:auto;}
 }
