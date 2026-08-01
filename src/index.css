@@ -513,16 +513,20 @@ h2.section-title {
     font-size: 22px;
   }
 }
+
 .splash {
   display: inline-block;
   color: var(--gold);
   font-family: var(--font-body);
   font-size: 22px;
-  transform: rotate(-20deg);
+  transform: rotate(-8deg);
   animation: pulse 1s ease-in-out infinite alternate;
-  margin-bottom: 28px;
   text-shadow: 2px 2px 0 #000;
-  margin-left: 600px;
+  position: relative;
+  left: clamp(120px, 22vw, 340px);
+  top: 8px;
+
+  margin-bottom: 28px;
 }
 @keyframes pulse {
   from {
@@ -533,7 +537,7 @@ h2.section-title {
   }
 }
 .hero-sub {
-  font-size: 23px;
+  font-size: 18px;
   color: #fff;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
   max-width: 640px;
@@ -1022,13 +1026,75 @@ footer .disclaimer {
 }
 
 @media (max-width: 520px) {
+  /* Smaller hotbar */
   #hotbar {
-    transform: translateX(-50%) scale(0.82);
+    transform: translateX(-50%) scale(0.72);
     bottom: 6px;
+    gap: 2px;
+    padding: 4px;
   }
+
+  .slot {
+    width: 42px;
+    height: 42px;
+  }
+
+  .slot .icon {
+    font-size: 16px;
+  }
+
+  .slot .key {
+    font-size: 7px;
+  }
+
+  .slot .tip {
+    bottom: 50px;
+    font-size: 13px;
+  }
+
+  /* Smaller hero */
+  .hero-inner {
+    padding-bottom: 90px;
+  }
+
+  .hero-name {
+    font-size: 20px;
+    margin-bottom: -4px;
+  }
+
+  .splash {
+    font-size: 15px;
+    margin-left: 120px;   /* instead of 600px */
+    margin-bottom: 18px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    max-width: 300px;
+    line-height: 1.4;
+    margin: 0 auto 20px;
+  }
+
+  .hero-btns {
+    gap: 10px;
+  }
+
+  .mc-btn {
+    font-size: 16px;
+    padding: 10px 18px;
+  }
+
   section {
     padding: 70px 16px;
   }
+
+  .splash {
+    font-size: 14px;
+    left: clamp(20px, 10vw, 100px);
+    top: 4px;
+    margin-bottom: 18px;
+  }
+
   #sound-controls {
     top: 14px;
     left: 14px;
