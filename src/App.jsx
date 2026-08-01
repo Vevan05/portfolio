@@ -39,7 +39,16 @@ export default function App() {
   const handleNav = useCallback(
     (target, isDownload) => {
       playBlip(320, 0.05);
-      if (isDownload) return; // let the browser handle the download link
+      if (isDownload){
+        const link = document.createElement('a');
+        link.href = target;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return; 
+      } 
+        
       if (target.startsWith('#')) {
         const el = document.querySelector(target);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
